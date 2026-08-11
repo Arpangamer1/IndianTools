@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300">
+  <defs>
+    <!-- soft drop shadow, faked with blur, not a 3D engine -->
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1F2937" flood-opacity="0.22"/>
+    </filter>
+
+    <!-- gentle bevel gradient across the page face -->
+    <linearGradient id="pageFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F1F1EF"/>
+    </linearGradient>
+
+    <!-- folded corner, slightly darker to read as a shadowed fold -->
+    <linearGradient id="foldShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5E5E2"/>
+      <stop offset="100%" stop-color="#D3D3CE"/>
+    </linearGradient>
+
+    <!-- saffron-to-green edge accent, a color cue only, never a flag shape -->
+    <linearGradient id="edgeAccent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8630A"/>
+      <stop offset="50%" stop-color="#E8630A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#138808"/>
+    </linearGradient>
+
+    <!-- small repeating jali (lattice) motif, used at low opacity as a quiet accent only -->
+    <pattern id="jali" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="16" height="16" fill="none"/>
+      <rect x="6" y="6" width="4" height="4" fill="#1F2937"/>
+    </pattern>
+  </defs>
+
+  <!-- floor shadow ellipse, gives a "lifted off the surface" read with zero animation -->
+  <ellipse cx="120" cy="272" rx="70" ry="10" fill="#1F2937" opacity="0.10"/>
+
+  <!-- page body -->
+  <g filter="url(#softShadow)">
+    <path d="M56,20 H150 L184,54 V236 a12,12 0 0 1 -12,12 H56 a12,12 0 0 1 -12,-12 V32 a12,12 0 0 1 12,-12 Z"
+          fill="url(#pageFace)"/>
+    <!-- folded corner -->
+    <path d="M150,20 L184,54 H162 a12,12 0 0 1 -12,-12 Z" fill="url(#foldShade)"/>
+  </g>
+
+  <!-- left edge color accent, thin, gradient only -->
+  <rect x="44" y="20" width="6" height="228" rx="3" fill="url(#edgeAccent)"/>
+
+  <!-- quiet jali strip along the bottom, low-opacity accent -->
+  <rect x="56" y="222" width="128" height="10" fill="url(#jali)" opacity="0.08"/>
+
+  <!-- PDF mark -->
+  <text x="120" y="188" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif"
+        font-size="30" font-weight="700" fill="#1F2937" letter-spacing="1">PDF</text>
+</svg>

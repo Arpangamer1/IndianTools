@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" width="360" height="100">
+  <!-- Icon: folded page / convert mark -->
+  <g transform="translate(6,10)">
+    <path d="M20,4 H58 L78,24 V72 a8,8 0 0 1 -8,8 H20 a8,8 0 0 1 -8,-8 V12 a8,8 0 0 1 8,-8 Z"
+          fill="#374151"/>
+    <path d="M58,4 L78,24 H62 a4,4 0 0 1 -4,-4 Z" fill="#E8630A"/>
+    <path d="M28,46 L44,46 M44,46 L38,40 M44,46 L38,52"
+          stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M52,58 L36,58 M36,58 L42,52 M36,58 L42,64"
+          stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="102" y="52" font-family="Helvetica Neue, Arial, sans-serif" font-size="34" font-weight="600" fill="#FFFFFF">Indian<tspan fill="#E8630A">Tools</tspan></text>
+
+  <!-- Subtle tricolor accent stripe under wordmark -->
+  <g transform="translate(103,64)">
+    <rect x="0" y="0" width="60" height="3" rx="1.5" fill="#E8630A"/>
+    <rect x="64" y="0" width="60" height="3" rx="1.5" fill="#FFFFFF"/>
+    <rect x="128" y="0" width="60" height="3" rx="1.5" fill="#138808"/>
+  </g>
+</svg>
