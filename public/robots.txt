@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin
 Disallow: /account
 
-Sitemap: https://indiantools.in/sitemap.xml
+Sitemap: https://indiantools.netlify.app/sitemap.xml
