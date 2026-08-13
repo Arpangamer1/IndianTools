@@ -12,6 +12,8 @@ export default function Contact() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    document.title = "Contact Support & Feedback — IndianTools";
+
     // Get active user session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);

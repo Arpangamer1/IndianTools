@@ -15,7 +15,7 @@ export default function Footer() {
               <img src="/logo-dark-bg.svg" alt="IndianTools Logo" className="h-10 w-auto" />
             </Link>
             <p className="text-xs text-gray-400 max-w-sm leading-relaxed">
-              India's own file toolkit. Your all-in-one suite for PDF and image conversions. 100% free, secure, and runs right in your browser.
+              India's own privacy-first file toolkit. Convert, merge, split, and compress PDF documents, and resize, compress, or convert images 100% locally in your browser.
             </p>
             <div className="flex items-center space-x-4 pt-2">
               <a href="#github" className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors">
@@ -33,13 +33,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Tools Links */}
+          {/* Column 2: Popular Tools */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Tools</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white">Popular Tools</h4>
             <ul className="space-y-2 text-xs font-semibold text-gray-400">
-              <li><Link to="/tools/pdf-to-jpg" className="hover:text-white transition-colors">PDF Tools</Link></li>
-              <li><Link to="/tools/jpg-to-png" className="hover:text-white transition-colors">Image Tools</Link></li>
-              <li><Link to="/" className="hover:text-white transition-colors">All Tools</Link></li>
+              <li><Link to="/tools/pdf-to-jpg" className="hover:text-saffron transition-colors">PDF to JPG Converter</Link></li>
+              <li><Link to="/tools/merge-pdf" className="hover:text-saffron transition-colors">Merge PDF Files</Link></li>
+              <li><Link to="/tools/compress-pdf" className="hover:text-saffron transition-colors">Compress PDF Size</Link></li>
+              <li><Link to="/tools/jpg-to-png" className="hover:text-saffron transition-colors">JPG to PNG Converter</Link></li>
+              <li><Link to="/tools/image-compressor" className="hover:text-saffron transition-colors">Image Compressor</Link></li>
+              <li><Link to="/tools/webp-to-jpg" className="hover:text-saffron transition-colors">WebP to JPG Converter</Link></li>
             </ul>
           </div>
 

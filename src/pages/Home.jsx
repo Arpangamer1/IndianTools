@@ -7,6 +7,11 @@ import * as Icons from 'lucide-react';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeFaqIndex, setActiveFaqIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
 
   useEffect(() => {
     document.title = "IndianTools — India's Own File Toolkit | 100% Free & Private";
@@ -35,10 +40,10 @@ export default function Home() {
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-charcoal-900 tracking-tight leading-tight sm:leading-none">
                 Built in <span className="text-saffron">India</span>.<br className="hidden sm:inline" />
-                Free for everyone.
+                Free Online PDF & Image Tools.
               </h1>
               <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                Your all-in-one toolkit for PDF and image conversions. 100% free, secure, and runs right in your browser.
+                Your privacy-first online toolkit to merge, split, compress, and convert PDF files, or crop, resize, and compress images. Everything runs 100% locally in your browser—no files are ever uploaded.
               </p>
             </div>
 
@@ -230,6 +235,68 @@ export default function Home() {
             <p className="text-xs text-gray-600 leading-relaxed max-w-xs">
               Proudly built by a small team in India with a mission to create world-class, privacy-first tools for everyone.
             </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. FAQ / SEO CONTENT SECTION */}
+      <section className="bg-gray-50/50 border-t border-gray-100 py-16 sm:py-20 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto space-y-12">
+          
+          <div className="text-center space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-black text-charcoal-900 tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-xs sm:text-sm text-gray-500 font-semibold max-w-lg mx-auto">
+              Learn how our privacy-first, client-side PDF and image conversion tools operate securely on your device.
+            </p>
+            <div className="w-12 h-1 bg-saffron mx-auto rounded-full"></div>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "How do client-side PDF and image tools protect my privacy?",
+                a: "Every document, image, or photo you select on IndianTools is processed directly inside your web browser using client-side JavaScript. Because we do not upload your files to any cloud or external server, your sensitive data stays 100% private, secure, and stays on your own device."
+              },
+              {
+                q: "Is there a file size limit or daily conversion limit?",
+                a: "No! Since all conversions (like merging PDF files, splitting pages, compressing images, or converting JPG to WebP) use your local browser's processing memory, there are no artificial size limits or daily caps. You can process as many files as you need, completely free."
+              },
+              {
+                q: "Can I use IndianTools offline without an active internet connection?",
+                a: "Yes! Once the page is loaded in your browser tab, all file tools operate entirely offline. This is because all processing libraries (such as pdf-lib, pdf.js, and JSZip) are loaded in the browser and run locally, making it a fully offline-capable workspace."
+              },
+              {
+                q: "How does the PDF Compressor shrink document sizes?",
+                a: "Our PDF compression tool features a 'Safe' mode that cleans redundant document metadata and compresses font resources without changing quality. It also offers an 'Aggressive' mode that recompresses high-resolution embedded photos to achieve maximum size reduction."
+              }
+            ].map((faq, index) => {
+              const isOpen = activeFaqIndex === index;
+              return (
+                <div 
+                  key={index}
+                  className="bg-white border border-gray-200/80 rounded-2xl p-5 shadow-3xs hover:shadow-xs transition-all duration-200"
+                >
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full flex items-center justify-between text-left focus:outline-none"
+                  >
+                    <span className="text-sm font-bold text-charcoal-900 pr-4">
+                      {faq.q}
+                    </span>
+                    <span className="text-saffron font-black text-lg transition-transform duration-200">
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </button>
+                  
+                  {isOpen && (
+                    <div className="mt-3.5 pt-3.5 border-t border-gray-100 text-xs sm:text-sm text-gray-600 leading-relaxed font-medium animate-fade-in">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
         </div>

@@ -3,9 +3,6 @@ import DropZone from '../ui/DropZone';
 import { saveAs } from 'file-saver';
 import { logToolUsage } from '../../lib/analytics';
 import { Download, RefreshCw, AlertCircle, CheckCircle, Sliders, Play, Settings, FileText } from 'lucide-react';
-import * as pdfjsLib from 'pdfjs-dist';
-const pdfjs = pdfjsLib.default || pdfjsLib;
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function ToolWidget({ tool }) {
   const [files, setFiles] = useState([]);
@@ -56,6 +53,11 @@ export default function ToolWidget({ tool }) {
     setIsLoadingThumbnails(true);
     setError(null);
     try {
+      // Dynamically import pdfjs-dist only when thumbnails are needed
+      const pdfjsLib = await import('pdfjs-dist');
+      const pdfjs = pdfjsLib.default || pdfjsLib;
+      pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
       const buffer = await file.arrayBuffer();
       const pdf = await pdfjs.getDocument({ data: buffer }).promise;
       const numPages = pdf.numPages;
@@ -82,6 +84,7 @@ export default function ToolWidget({ tool }) {
       setThumbnails(thumbs);
       setSelectedPageIndices(defaultIndices);
     } catch (err) {
+      console.error(err);
       setError('Could not generate PDF thumbnails. Ensure file is not password protected.');
     } finally {
       setIsLoadingThumbnails(false);
