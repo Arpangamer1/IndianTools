@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RC0YZ37VG3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-RC0YZ37VG3');
-    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,8 +10,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- AdSense Async Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7088142164047358" crossorigin="anonymous"></script>
+    <!-- Deferred Third-Party Scripts (AdSense & Google Analytics) to optimize PageSpeed -->
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          // Google Analytics (gtag.js)
+          const gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-RC0YZ37VG3";
+          document.head.appendChild(gaScript);
+
+          const gaConfig = document.createElement('script');
+          gaConfig.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RC0YZ37VG3');
+          `;
+          document.head.appendChild(gaConfig);
+
+          // Google AdSense
+          const adsScript = document.createElement('script');
+          adsScript.async = true;
+          adsScript.crossOrigin = "anonymous";
+          adsScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7088142164047358";
+          document.head.appendChild(adsScript);
+        }, 2500);
+      });
+    </script>
   </head>
   <body class="bg-gray-50 text-charcoal font-sans antialiased selection:bg-saffron-100 selection:text-saffron-700 min-h-screen flex flex-col">
     <div id="root" class="flex flex-col min-h-screen"></div>

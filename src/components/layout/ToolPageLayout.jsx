@@ -134,7 +134,7 @@ export default function ToolPageLayout({ tool, children }) {
               {tool.faqs && tool.faqs.map((faq, index) => (
                 <details key={index} className="group bg-white border border-gray-200/80 rounded-xl p-4 [&_summary::-webkit-details-marker]:hidden">
                   <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                    <h3 className="text-xs sm:text-sm font-bold text-charcoal-800 leading-snug">{faq.question}</h3>
+                    <span className="text-xs sm:text-sm font-bold text-charcoal-800 leading-snug">{faq.question}</span>
                     <span className="ml-1.5 flex-shrink-0 transition-transform group-open:-rotate-180">
                       <ChevronRight className="w-4 h-4 text-gray-500 rotate-90" />
                     </span>

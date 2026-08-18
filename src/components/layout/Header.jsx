@@ -65,6 +65,9 @@ export default function Header() {
             <button
               onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
               className="flex items-center space-x-1 hover:text-saffron transition-colors focus:outline-none"
+              aria-label="Toggle Tools Dropdown"
+              aria-haspopup="true"
+              aria-expanded={toolsDropdownOpen}
             >
               <span>Tools</span>
               <ChevronDown className="w-4 h-4 text-gray-500" />
@@ -108,7 +111,11 @@ export default function Header() {
                 </div>
                 <span className="text-xs font-bold text-charcoal-700">Hi, User</span>
               </Link>
-              <button onClick={handleLogout} className="text-gray-400 hover:text-red-500 transition-colors">
+              <button 
+                onClick={handleLogout} 
+                className="text-gray-400 hover:text-red-500 transition-colors"
+                aria-label="Sign out"
+              >
                 <LogOut className="w-4 h-4" />
               </button>
             </div>
@@ -154,19 +161,26 @@ export default function Header() {
             <div className="flex items-center justify-between pb-6 border-b border-gray-100">
               <div className="flex items-center space-x-2">
                 <div className="w-9 h-9 rounded-full bg-saffron-100 text-saffron flex items-center justify-center font-bold text-sm">
-                  {session ? session.user.email[0].toUpperCase() : 'A'}
+                  {session ? session.user.email[0].toUpperCase() : 'G'}
                 </div>
                 <div className="text-left">
-                  <p className="text-xs font-bold text-charcoal-900">{session ? session.user.email : 'Arjun'}</p>
-                  <Link to="/account" className="text-[10px] text-gray-400 font-semibold hover:underline">
-                    View Account
-                  </Link>
+                  <p className="text-xs font-bold text-charcoal-900">{session ? session.user.email : 'Guest User'}</p>
+                  {session ? (
+                    <Link to="/account" className="text-[10px] text-gray-400 font-semibold hover:underline">
+                      View Account
+                    </Link>
+                  ) : (
+                    <Link to="/login" className="text-[10px] text-saffron font-bold hover:underline">
+                      Login / Register
+                    </Link>
+                  )}
                 </div>
               </div>
 
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 text-gray-400 hover:text-charcoal rounded-lg hover:bg-gray-50"
+                aria-label="Close mobile navigation menu"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -218,6 +232,7 @@ export default function Header() {
                 <button
                   onClick={toggleTheme}
                   className="w-10 h-5 bg-gray-200 rounded-full p-0.5 transition-colors focus:outline-none"
+                  aria-label="Toggle theme mode"
                 >
                   <div
                     className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-transform ${

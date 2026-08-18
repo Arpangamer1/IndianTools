@@ -18,16 +18,32 @@ export default function Footer() {
               India's own privacy-first file toolkit. Convert, merge, split, and compress PDF documents, and resize, compress, or convert images 100% locally in your browser.
             </p>
             <div className="flex items-center space-x-4 pt-2">
-              <a href="#github" className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors">
+              <a 
+                href="#github" 
+                className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors"
+                aria-label="Visit our GitHub profile"
+              >
                 <Github className="w-4 h-4" />
               </a>
-              <a href="#twitter" className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors">
+              <a 
+                href="#twitter" 
+                className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors"
+                aria-label="Follow us on Twitter"
+              >
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#linkedin" className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors">
+              <a 
+                href="#linkedin" 
+                className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors"
+                aria-label="Visit our LinkedIn profile"
+              >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#mail" className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors">
+              <a 
+                href="#mail" 
+                className="p-2 bg-gray-800 hover:bg-saffron hover:text-white rounded-lg text-gray-400 transition-colors"
+                aria-label="Send us an email"
+              >
                 <Mail className="w-4 h-4" />
               </a>
             </div>

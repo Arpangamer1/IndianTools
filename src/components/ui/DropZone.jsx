@@ -115,6 +115,7 @@ export default function DropZone({ accept = '*', multiple = false, onFilesSelect
                       onRemoveFile(index);
                     }}
                     className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors flex-shrink-0"
+                    aria-label="Remove selected file"
                   >
                     <X className="w-4 h-4" />
                   </button>
